@@ -1,25 +1,45 @@
-export function TwitterFollowCard ({userName,name,isFollowing}) {
-//const imageSrc=`https://unavatar.io/${userName}`
+import { useState } from 'react'
+export function TwitterFollowCard({ children, userName="unknow"}) {
+  
 
-    return (
+ const [isFollowing, setIsFollowing] = useState(false)
+ /* Es lo mismo que:
+  const estate = useState(false)
+  const isFollowing = estate[0]
+  const setIsFollowing = estate[1]
+*/
+ 
 
-<article className='tw-followCard'>
+const text = isFollowing ? 'Siguiendo' : 'Seguir'
+  const buttonClassName = isFollowing 
+  ? 'tw-followCard-button is-following' 
+  : 'tw-followCard-button'
+
+  const handleClick = () => {
+    setIsFollowing(!isFollowing)
+    }
+
+  return (
+
+    <article className='tw-followCard'>
       <header className='tw-followCard-header'>
         <img
           className='tw-followCard-avatar'
-          alt="El avatar de miudev"
-          src=" https://unavatar.io/${userName}" />
-        <div>
-          <strong> Miguel Ángel Durán </strong>
+          alt={`El avatar de ${children}`}
+          //const imageSrc=`https://unavatar.io/${userName}`
+          src={`https://unavatar.io/${userName}`} /> 
+        <div className='tw-followCard-info'>
+          <span> {children} </span>
+
           <span
-            className='tw-followCard-infoUserName'>@midudev
+            className='tw-followCard-infoUserName'>@{userName}
           </span>
         </div>
       </header>
 
       <aside>
-        <button>
-          Seguir
+        <button className={buttonClassName} onClick={handleClick}>
+          {text}
         </button>
       </aside>
     </article>

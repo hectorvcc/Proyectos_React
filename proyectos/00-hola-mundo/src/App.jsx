@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { TwitterFollowCard } from './TwitterFollowCard'
+import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
 export function App() {
   /*const [count, setCount] = useState(0)
@@ -30,11 +27,36 @@ export function App() {
       </p>
     </>
   )*/
+
+    //const midudev = { isFollowing: true, userName: 'midudev' }
+    const pheralb = { isFollowing: false, userName: 'pheralb' }
+
   return (
-    <section>
-      <TwitterFollowCard userName='midudev' name={'Miguel Ángel Durán'} isFollowing={true} />
-      <TwitterFollowCard userName='pheralb' name={'Pablo Heranandez'} isFollowing={true} />
-      <TwitterFollowCard userName='elonmusk' name={'Elon Musk'} isFollowing={true} />
+    <section className="App">
+      <TwitterFollowCard
+        userName='midudev'
+        //name={'Miguel Ángel Durán'} 
+        isFollowing
+      >
+        Miguel Ángel Durán
+      </TwitterFollowCard>
+
+      <TwitterFollowCard
+        userName='pheralb'
+        //name={'Pablo Heranandez'} 
+        isFollowing={false}
+
+      >pheralb
+      </TwitterFollowCard>
+
+      <TwitterFollowCard
+        userName='bliztdev'
+        //name={'Pablo Heranandez'} 
+        isFollowing={false}
+
+      >victor
+      </TwitterFollowCard>
+
     </section>
   )
 }

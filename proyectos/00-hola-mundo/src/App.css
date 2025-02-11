@@ -5,12 +5,13 @@
   color: #fff;
   font-size: .8rem;
   justify-content: space-between;
+  gap: 10px
 }
 
 .tw-followCard-header {
   display: flex;
   align-items: center;
-  gap: 4px
+  gap: 10px
 }
 
 .tw-followCard-info {
