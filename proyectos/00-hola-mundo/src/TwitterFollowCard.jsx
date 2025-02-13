@@ -1,13 +1,16 @@
 import { useState } from 'react'
-export function TwitterFollowCard({ children, userName="unknow"}) {
+export function TwitterFollowCard({ children, userName="unknow", initialIsFollowing }) {
   
 
- const [isFollowing, setIsFollowing] = useState(false)
+ const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
  /* Es lo mismo que:
   const estate = useState(false)
   const isFollowing = estate[0]
   const setIsFollowing = estate[1]
 */
+
+console.log(initialIsFollowing)
+//console.log("[TwitterFollowCard] render with userName: ",userName)
  
 
 const text = isFollowing ? 'Siguiendo' : 'Seguir'
@@ -39,7 +42,10 @@ const text = isFollowing ? 'Siguiendo' : 'Seguir'
 
       <aside>
         <button className={buttonClassName} onClick={handleClick}>
-          {text}
+          <span className='tw-followCard-text'> {text} </span>
+          <span className='tw-followCard-stopFollow'>Dejar de seguir
+
+          </span>
         </button>
       </aside>
     </article>

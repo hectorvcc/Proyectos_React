@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
@@ -31,12 +32,18 @@ export function App() {
     //const midudev = { isFollowing: true, userName: 'midudev' }
     const pheralb = { isFollowing: false, userName: 'pheralb' }
 
+    //Hook para manejar el estado del nombre
+    const [name,setName]= useState('midude')
+
+    // se ejecuta cada vez que se renderiza el componente
+    console.log("render with name: ",name) 
+
   return (
     <section className="App">
       <TwitterFollowCard
-        userName='midudev'
+        userName={name}
         //name={'Miguel Ángel Durán'} 
-        isFollowing
+        initialIsFollowing={true}
       >
         Miguel Ángel Durán
       </TwitterFollowCard>
@@ -44,18 +51,18 @@ export function App() {
       <TwitterFollowCard
         userName='pheralb'
         //name={'Pablo Heranandez'} 
-        isFollowing={false}
-
+        initialIsFollowing={false}
       >pheralb
       </TwitterFollowCard>
 
       <TwitterFollowCard
         userName='bliztdev'
         //name={'Pablo Heranandez'} 
-        isFollowing={false}
-
+        initialIsFollowing={true}
       >victor
       </TwitterFollowCard>
+
+      <button onClick={() => setName(`pedromike`)}>Cambiar nombre</button>
 
     </section>
   )
